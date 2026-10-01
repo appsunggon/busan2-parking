@@ -66,7 +66,9 @@ function mergeParking(city, list, live) {
       capacity: number(row.realtime?.maxcnt), realtime: row.realtime, facility: true
     });
   }
-  return rows.sort((a, b) => a.name.localeCompare(b.name, 'ko'));
+  // 실시간 제공 대상을 먼저 표시하고, 같은 그룹에서는 이름순으로 정렬합니다.
+  return rows.sort((a, b) => Number(b.facility) - Number(a.facility)
+    || a.name.localeCompare(b.name, 'ko'));
 }
 
 // 3. 세 가지 조회 결과를 한 목록으로 합칩니다.
@@ -134,9 +136,8 @@ function hours(start, end) {
 // 5. 핵심정보와 펼칠 수 있는 상세정보를 표시합니다.
 function renderParking() {
   const query = normalize(searchInput.value);
-  const filtered = parkingData.filter(row => normalize(
-    row.name + ' ' + text(row.basic?.doroAddr) + ' ' + text(row.basic?.jibunAddr) + ' ' + text(row.basic?.guNm)
-  ).includes(query));
+  // 검색어로 시작하는 주차장명만 표시합니다. 공백·문장부호 차이는 무시합니다.
+  const filtered = parkingData.filter(row => normalize(row.name).startsWith(query));
   statusText.textContent = (notice ? notice + '\n' : '')
     + '통합 목록 ' + parkingData.length + '곳 / 검색 결과 ' + filtered.length + '곳';
   listArea.innerHTML = filtered.map(row => {
