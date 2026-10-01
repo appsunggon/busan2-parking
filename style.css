@@ -1,0 +1,22 @@
+/* 1. 페이지 기본 설정 */
+* { box-sizing: border-box; }
+body { margin: 0; background: #f4f6f8; color: #243447; font-family: Arial, "Malgun Gothic", sans-serif; }
+header { padding: 28px 20px; background: #164b70; color: white; text-align: center; }
+h1 { margin: 0 0 12px; font-size: 28px; }
+header p { margin: 0; }
+main { max-width: 1000px; margin: 28px auto; padding: 0 20px; }
+/* 2. 조회 및 검색 영역 */
+.toolbar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+input, select, button { padding: 12px; border: 1px solid #cbd5df; border-radius: 6px; font: inherit; }
+input { display: block; width: 100%; margin-top: 8px; }
+button { background: #164b70; color: white; cursor: pointer; }
+button:disabled { opacity: .5; cursor: wait; }
+#status { line-height: 1.7; white-space: pre-line; }
+/* 3. 주차장 카드 */
+#parking-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 16px; }
+.parking-card { padding: 20px; border: 1px solid #dce3e9; border-radius: 10px; background: white; }
+.parking-card h2 { margin: 0 0 16px; font-size: 19px; }
+.parking-card p { margin: 8px 0; line-height: 1.6; }
+.free { font-size: 24px; font-weight: bold; color: #146a55; }
+.note { font-size: 13px; color: #657386; }
+footer { padding: 24px; text-align: center; font-size: 13px; line-height: 1.7; color: #657386; }
