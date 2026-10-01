@@ -7,25 +7,19 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>부산 공영주차장</h1>
-    <p>실시간 빈자리와 주차장 기본정보를 조회합니다.</p>
-  </header>
+  <header><h1>부산 공영주차장</h1><p>주차장을 검색하고 요금과 제공되는 실시간 빈자리를 확인하세요.</p></header>
   <main>
     <div class="toolbar">
-      <label for="type">조회 종류</label>
-      <select id="type">
-        <option value="live">실시간 주차현황</option>
-        <option value="city">전체 주차장 기본정보</option>
-      </select>
-      <button id="refresh" type="button">조회하기</button>
+      <label class="search-label" for="search">전체 주차장 검색
+        <input id="search" type="search" placeholder="주차장명 또는 주소 입력">
+      </label>
+      <button id="refresh" type="button">새로 조회</button>
     </div>
-    <label for="search">주차장 검색</label>
-    <input id="search" type="search" placeholder="주차장명 또는 주소 입력">
     <p id="status" role="status" aria-live="polite">조회 준비 중입니다.</p>
+    <p class="note">실시간은 제공 대상에 한합니다. 갱신시각이 15분 이상 지난 경우 갱신 지연으로 표시합니다.</p>
     <section id="parking-list" aria-label="주차장 목록"></section>
   </main>
-  <footer>출처: 부산광역시 · 부산시설공단<br>제공기관 갱신시각과 현장 안내를 확인하세요.</footer>
+  <footer>출처: 부산광역시 · 부산시설공단<br>요금·운영시간과 실제 빈자리는 현장 안내를 확인하세요.</footer>
   <script src="app.js" defer></script>
 </body>
 </html>

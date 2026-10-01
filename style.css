@@ -20,3 +20,12 @@ button:disabled { opacity: .5; cursor: wait; }
 .free { font-size: 24px; font-weight: bold; color: #146a55; }
 .note { font-size: 13px; color: #657386; }
 footer { padding: 24px; text-align: center; font-size: 13px; line-height: 1.7; color: #657386; }
+
+/* 통합 검색과 상세정보 */
+.toolbar { align-items: flex-end; }
+.search-label { flex: 1; min-width: 220px; }
+.badge { display: inline-block; margin-bottom: 14px; padding: 5px 10px; border-radius: 20px; background: #edf1f5; font-size: 13px; }
+.badge.good { background: #def4e9; color: #146a55; }
+.badge.warn { background: #fff0d9; color: #89570e; }
+details { border-top: 1px solid #e4e9ef; padding-top: 12px; margin-top: 16px; }
+summary { cursor: pointer; color: #164b70; }
